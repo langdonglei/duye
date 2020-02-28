@@ -23,18 +23,13 @@ Page({
   },
 
   btnletter(e) {
-    let v = e.target.id;
-    let s = this.data.result;
-    let r = '';
-    if (s.length < this.data.lettermaxlength) {
+    if (this.data.result.length < this.data.lettermaxlength) {
       if (s == '0') {
-        r = v;
+        this.setData({ result: e.target.id })
       } else {
-        r = s + v;
+        this.setData({ result: this.data.result + e.target.id })
       }
-      this.setData({ result: r })
     }
-
   },
 
   btndelete() {
