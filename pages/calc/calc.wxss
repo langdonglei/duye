@@ -1,1 +1,68 @@
-/* pages/calc/calc.wxss */
+page {
+  height: 100vh;
+}
+
+.monitor {
+  height: 30%;
+  background-color: brown;
+
+  box-sizing: border-box;
+  padding: 5%;
+
+  text-align: right;
+  font-size: 500%;
+  font-weight: bold;
+}
+
+.keyboard {
+  height: 70%;
+  background-color: grey;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.keyline {
+  height: 24.5%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.keyletter {
+  width: 32.8%;
+  background-color: cadetblue;
+
+  text-align: center;
+}
+
+.keyletter::before {
+  height: 100%;
+  display: inline-block;
+  content: '';
+  vertical-align: middle;
+}
+
+.keyletter:active {
+  background-color: lightgreen;
+}
+
+.keyfunction {
+  width: 32.8%;
+  background-color: burlywood;
+
+  text-align: center;
+}
+
+.keyfunction::before {
+  height: 100%;
+  display: inline-block;
+  content: '';
+  vertical-align: middle;
+}
+
+.keyfunction:active {
+  background-color: chartreuse;
+}

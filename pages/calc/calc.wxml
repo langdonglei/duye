@@ -1,2 +1,23 @@
-<!--pages/calc/calc.wxml-->
-<text>pages/calc/calc.wxml</text>
+<view class="monitor">{{result}}</view>
+<view class="keyboard">
+	<view class="keyline">
+		<view class="keyletter" id="1" bindtap="btnletter">1</view>
+		<view class="keyletter" id="2" bindtap="btnletter">2</view>
+		<view class="keyletter">1</view>
+	</view>
+	<view class="keyline">
+		<view class="keyletter">1</view>
+		<view class="keyletter">1</view>
+		<view class="keyletter">1</view>
+	</view>
+	<view class="keyline">
+		<view class="keyletter">1</view>
+		<view class="keyletter">1</view>
+		<view class="keyletter">1</view>
+	</view>
+	<view class="keyline">
+		<view class="keyletter">1</view>
+		<view class="keyfunction">delete</view>
+		<view class="keyfunction">=</view>
+	</view>
+</view>
