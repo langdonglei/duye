@@ -1,1 +1,21 @@
-/* pages/gan/gan.wxss */
+page {
+  height: 100vh;
+}
+
+.view1 {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+.view2 {
+  height: 80%;
+  width: 80%;
+  background-color: green;
+}
+
+.view3 {
+  height: 60%;
+  width: 60%;
+  background-color: gray;
+}

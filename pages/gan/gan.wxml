@@ -1,2 +1,9 @@
-<!--pages/gan/gan.wxml-->
-<text>pages/gan/gan.wxml</text>
+<view class="view1" bind:tap="view1Click" id="view1">
+	view111...
+	<view class="view2" bind:tap="view2Click" id="view2">
+		view222...
+		<view class="view3" catch:tap="view3Click" id="view3">
+			view333...
+		</view>
+	</view>
+</view>
