@@ -1,74 +1,45 @@
 Page({
   data: {
-    result: '0',
-    roman1: 'I',
-    roman2: 'V',
-    roman3: 'X',
-    roman4: 'L',
-    roman5: 'C',
-    roman6: 'D',
-    roman7: 'M',
-    roman8: 'Del',
-    roman9: '=',
-    arab1: '1',
-    arab2: '5',
-    arab3: '10',
-    arab4: '50',
-    arab5: '100',
-    arab6: '500',
-    arab7: '1000',
-    flag: '1',
-    fontsize: false,
-    lettermaxlength: 6
+    screenValue: 'NaN',
+    screenValueMinLength: 1,
+    screenValueMaxLength: 6,
   },
 
-  btnletter(e) {
-    if (this.data.result.length < this.data.lettermaxlength) {
-      if (s == '0') {
-        this.setData({ result: e.target.id })
-      } else {
-        this.setData({ result: this.data.result + e.target.id })
-      }
-    }
-  },
-
-  btndelete() {
-    let s = this.data.result;
+  btnLetter(e) {
+    let vo = this.data.screenValue;
+    let vn = e.target.id;
     let r = '';
-    if (s.length > 0 && s.length < 7) {
-      if (s.length == 1) {
-        r = '0'
+    if (vo.length < this.data.screenValueMaxLength) {
+      if (vo == 'NaN') {
+        r = vn;
       } else {
-        r = s.substring(0, s.length - 1);
+        r = vo + vn
       }
-      this.setData({ result: r })
+      this.setData({ screenValue: r });
     }
   },
 
+  btnDelete() {
+    this.setData({ screenValue: 'NaN' });
+  },
+
+  // todo 算法不正确
   btnEqual() {
-    var strs = this.data.result;
-    var currentVal = 0;
-    var previousVal = 0;
-    if (strs != '(*^_^*)' && this.data.flag == '0') {
-      var total = 0;
-      for (var i = 0; i < strs.length; i++) {
-        currentVal = this.getValue(strs.charAt(i));
-        total += currentVal;
-        previousVal = this.getValue(strs.charAt(i - 1));
-        if (i > 0 && currentVal > previousVal) {
-          total = total - 2 * this.getValue(strs.charAt(i - 1));
+    let v = this.data.screenValue;
+    let r = 0;
+    if (!/^\d+$/.test(v)) {
+      for (let i = 0; i < this.data.screenValue.length; i++) {
+        r += this.getValue(v.charAt(i));
+        if (i > 0 && this.getValue(i) > this.getValue(i - 1)) {
+          r -= this.getValue(v.charAt(i - 1));
         }
       }
-      this.setData({
-        result: total,
-        flag: '1',
-        fontsize: false
-      })
+      this.setData({ screenValue: r.toString() })
     }
   },
 
-  getValue(r) {
-    switch (r) {
+  getValue(letter) {
+    switch (letter) {
       case 'I':
         return 1;
       case 'V':
@@ -85,5 +56,4 @@ Page({
         return 1000;
     }
   }
-
-})
+});

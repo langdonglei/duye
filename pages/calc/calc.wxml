@@ -1,23 +1,18 @@
-<view class="monitor">{{result}}</view>
+<view class="screen">{{screenValue}}</view>
 <view class="keyboard">
-	<view class="keyline">
-		<view class="keyletter" id="1" bindtap="btnletter">1</view>
-		<view class="keyletter" id="2" bindtap="btnletter">2</view>
-		<view class="keyletter">1</view>
+	<view class="keyLine">
+		<view class="keyLetter" bindtap="btnLetter" id="I">I</view>
+		<view class="keyLetter" bindtap="btnLetter" id="V">V</view>
+		<view class="keyLetter" bindtap="btnLetter" id="X">X</view>
 	</view>
-	<view class="keyline">
-		<view class="keyletter">1</view>
-		<view class="keyletter">1</view>
-		<view class="keyletter">1</view>
+	<view class="keyLine">
+		<view class="keyLetter" bindtap="btnLetter" id="L">L</view>
+		<view class="keyLetter" bindtap="btnLetter" id="C">C</view>
+		<view class="keyLetter" bindtap="btnLetter" id="D">D</view>
 	</view>
-	<view class="keyline">
-		<view class="keyletter">1</view>
-		<view class="keyletter">1</view>
-		<view class="keyletter">1</view>
-	</view>
-	<view class="keyline">
-		<view class="keyletter">1</view>
-		<view class="keyfunction">delete</view>
-		<view class="keyfunction">=</view>
+	<view class="keyLine">
+		<view class="keyLetter" bindtap="btnLetter" id="M">M</view>
+		<view class="keyFunction" bindtap="btnDelete">delete</view>
+		<view class="keyFunction" bindtap="btnEqual">=</view>
 	</view>
 </view>
