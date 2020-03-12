@@ -1,14 +1,16 @@
 {
   "pages": [
-    "pages/gan/gan",
     "pages/index/index",
+    "pages/logs/logs",
+    "pages/gan/gan",
     "pages/calc/calc",
-    "pages/logs/logs"
+    "pages/blog/blog",
+    "pages/tool/tool"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "夜都",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

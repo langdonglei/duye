@@ -1,30 +1,19 @@
-//index.js
-//获取应用实例
 const app = getApp()
-
 Page({
-  pagegan: function () {
-    wx.navigateTo({
-      url: '/pages/gan/gan',
-    })
-  },
-  pagecalc: function () {
-    wx.navigateTo({
-      url: '/pages/calc/calc',
-    });
-  },
+
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -53,6 +42,7 @@ Page({
       })
     }
   },
+
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -60,5 +50,24 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+  pagegan: function () {
+    wx.navigateTo({
+      url: '/pages/gan/gan',
+    })
+  },
+
+  pagecalc: function () {
+    wx.navigateTo({
+      url: '/pages/calc/calc',
+    });
+  },
+
+  pagetool: function(){
+    wx.navigateTo({
+      url: '/pages/tool/tool'
+    });
   }
+
 })
