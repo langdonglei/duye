@@ -1,16 +1,30 @@
-<!--index.wxml-->
-<view class="container">
-
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-
-  <button bindtap="pagegan">pagegan</button>
-  <button bindtap="pagetool">pagetool</button>
-  <button bindtap="pagecalc">pageclac</button>
-  <button bindtap="pageblog">pageblogc</button>
+<view class="h300">
+	<swiper autoplay="true">
+		<block wx:for="{{banner}}" wx:key="id">
+			<swiper-item bindtap="tapProduct" data-id="{{item.id}}">
+				<image class="full" mode="aspectFill" src="{{item.image.url}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
 </view>
+<view class="title-line">精选主题</view>
+<view class="flex-wrap">
+	<block wx:for="{{theme}}" wx:key="id">
+		<view class="h300 {{index==2?'box-line':'box'}}" bindtap="tapTheme" data-id="{{item.id}}" data-title="{{item.title}}">
+			<image class="full" mode="aspectFill" src="{{item.top_image.url}}"></image>
+		</view>
+	</block>
+</view>
+<view class="title-line">最近新品</view>
+<view class="flex-wrap">
+	<block wx:for="{{product}}" wx:key="id">
+		<view class="box" bindtap="tapProduct" data-id="{{item.id}}">
+			<view class="h300">
+				<image src="{{item.image.url}}"></image>
+			</view>
+			<view class="f12c">{{item.title}}</view>
+			<view class="f12c">{{item.price}}</view>
+		</view>
+	</block>
+</view>
+<view class="title-line">我是底线</view>

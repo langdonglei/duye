@@ -1,0 +1,16 @@
+<view class="h300">
+	<image class="full" mode="aspectFill" src="{{theme.head_image.url}}"></image>
+</view>
+
+<view class="title-line">精选主题</view>
+<view class="flex-wrap">
+	<block wx:for="{{theme.product}}" wx:key="{{item.id}}">
+		<view class="box">
+			<view class="h300">
+				<image class="full" mode="aspectFill" src="{{item.image.url}}"></image>
+			</view>
+			<view class="f12c">{{item.title}}</view>
+			<view class="f12c">{{item.price}}</view>
+		</view>
+	</block>
+</view>

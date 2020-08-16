@@ -5,7 +5,9 @@
     "pages/gan/gan",
     "pages/calc/calc",
     "pages/blog/blog",
-    "pages/tool/tool"
+    "pages/tool/tool",
+    "pages/detail/detail",
+    "pages/theme/theme"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,6 +15,26 @@
     "navigationBarTitleText": "夜都",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/girl.png",
+        "selectedIconPath": "image/girl.png",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/calc/calc",
+        "iconPath": "image/girl.png",
+        "selectedIconPath": "image/girl.png",
+        "text": "calc"
+      }
+    ]
+  },
+
   "sitemapLocation": "sitemap.json"
 }

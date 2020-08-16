@@ -1,3 +1,2 @@
-<!--pages/tool/tool.wxml-->
-<text>pages/tool/tool.wxml</text>
 <button bindtap="getCode">getCode</button>
+<button bindtap="getToken">getToken</button>

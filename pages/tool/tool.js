@@ -66,9 +66,33 @@ Page({
 
   getCode: function(){
     wx.login({
-      complete: (res) => {
+      success: (res) => {
         console.log(res);
+        wx.setStorageSync('code', res.code);
       },
+      fail:function (res) {
+        console.log('wx.login failed');
+      }
+    })
+  },
+  getToken: function(){
+    wx.login({
+      success: (res)=> {
+        wx.request({
+          method:'POST',
+          url: 'http://tp51.com/token/get',
+          data:{
+            code:res.code
+          },
+          success:(res)=> {
+            console.log(res);
+            wx.setStorageSync('token', res.data.token);
+          }
+        })
+      },
+      fail:function (res) {
+        console.log('wx.login failed');
+      }
     })
   }
 })

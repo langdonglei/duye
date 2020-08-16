@@ -1,73 +1,42 @@
-const app = getApp()
 Page({
-
-  data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+    wx.request({
+      method: 'get',
+      url: 'http://tp51.com/banner/one?id=1',
+      success: (response) => {
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+          banner: response.data.banner_item
+        });
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-
-  pagegan: function () {
-    wx.navigateTo({
-      url: '/pages/gan/gan',
-    })
-  },
-
-  pagecalc: function () {
-    wx.navigateTo({
-      url: '/pages/calc/calc',
+    });
+    wx.request({
+      url: 'http://tp51.com/theme/some?ids=1,2,3',
+      success: (response) => {
+        this.setData({
+          theme: response.data
+        });
+      }
+    });
+    wx.request({
+      url: 'http://tp51.com/product/recent',
+      success: (response) => {
+        this.setData({
+          product: response.data
+        });
+      }
     });
   },
-
-  pagetool: function(){
+  tapProduct: function (event) {
+    var id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/tool/tool'
+      url: '/pages/detail/detail?id=' + id,
+    });
+  },
+  tapTheme: function (event) {
+    var id = event.currentTarget.dataset.id;
+    var title = event.currentTarget.dataset.title;
+    wx.navigateTo({
+      url: '/pages/theme/theme?id=' + id + '&title=' + title,
     });
   }
-
-})
+});

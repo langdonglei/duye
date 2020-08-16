@@ -1,0 +1,41 @@
+<view>
+	<icon type="success" style="position:absolute;top:15rpx;right:15rpx"></icon>
+</view>
+
+<view class="h300">
+	<image class="full" mode="aspectFill" src="{{product.image.url}}"></image>
+</view>
+
+<view class="container">
+	<view class="picker">
+		<picker range="{{arr}}" class="picker {{picker?'':'disabled'}}" bindchange="picker">
+			<text>数量</text>
+			<text> {{count}} </text>
+			<icon type="success"></icon>
+		</picker>
+	</view>
+	<view class="stand">|</view>
+	<button>购买</button>
+</view>
+
+<view class="tab">
+	<block wx:for="{{['商品详情','商品参数','产品售后']}}" wx:key="id">
+		<view class="{{index==tab?'active':''}}" bindtap="tap" data-index="{{index}}">{{item}}</view>
+	</block>
+</view>
+
+<view hidden="{{tab==0?false:true}}">
+	<block wx:for="{{product.product_image}}" wx:key="id">
+		<view class="h300">
+			<image class="full" src="{{item.image.url}}"></image>
+		</view>
+	</block>
+</view>
+
+<view hidden="{{tab==1?false:true}}">
+	参数没有
+</view>
+
+<view hidden="{{tab==2?false:true}}">
+	7天无理由退货
+</view>

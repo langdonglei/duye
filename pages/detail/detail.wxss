@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.picker {
+  color: #fff;
+  font-size: 14px;
+  line-height: 28px;
+  border-radius: 15px 0 0 15px;
+  background-color: rgb(199, 124, 27);
+}
+
+.picker text {
+  margin-left: 50rpx;
+}
+
+.stand {
+  color: #fff;
+  font-size: 14px;
+  line-height: 28px;
+  background-color: rgb(199, 124, 27);
+}
+
+button {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  background-color: rgb(199, 124, 27);
+}
+
+button::after {
+  border: none;
+}
+
+.disabled {
+  color: rgb(107, 105, 105);
+  pointer-events: none;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.tab view {
+  width: 30%;
+}
+
+.active {
+  color: #fff;
+  border-bottom: 5rpx solid #ddd;
+}
